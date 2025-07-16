@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evergreen 2022 | Químicos para Quesería</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ESTILOS BASE (originales) */
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --primary-light: #C8E6C9;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray: #E0E0E0;
+            --gray-dark: #757575;
+            --black: #212121;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('assets/h1.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--gray-dark);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            max-width: 40%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 5%;
+            background-color: var(--gray-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Products */
+        .products {
+            padding: 5rem 5%;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .product-info p {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* About */
+        .about {
+            padding: 5rem 5%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .about p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--gray-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--gray-dark);
+            font-size: 0.8rem;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 5rem 5%;
+            background-color: var(--gray-light);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 5rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 3rem 5%;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-links h3, .footer-newsletter h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after, .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 1001;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .close-cart {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-dark);
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background-color: var(--gray-light);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quantity {
+            margin: 0 0.5rem;
+        }
+
+        .remove-item {
+            margin-left: auto;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: red;
+        }
+
+        .cart-total {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .cart-total span {
+            color: var(--primary);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ESTILOS PARA LAS PESTAÑAS (nuevos) */
+        .tab-content {
+            display: none;
+            padding: 80px 5% 5rem;
+            min-height: 100vh;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        #inicio {
+            padding: 0;
+        }
+
+        /* Estilos específicos para cada pestaña */
+        #productos {
+            background-color: var(--white);
+        }
+
+        #nosotros {
+            background-color: var(--primary-light);
+        }
+
+        #testimonios {
+            background-color: var(--white);
+        }
+
+        #contacto {
+            background-color: var(--gray-light);
+        }
+
+        /* Menú activo */
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* Estilos para el equipo */
+        .team-member {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        /* Casos de éxito */
+        .success-case {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+        }
+
+        .faq-item h4 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-dark);
+        }
+
+        .faq-item p {
+            display: none;
+            margin-top: 0.5rem;
+            color: var(--gray-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+                height: auto;
+                padding-bottom: 3rem;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-image {
+                position: static;
+                max-width: 100%;
+                margin-top: 2rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Evergreen 2022 Logo">
+            <span class="logo-text">Evergreen 2022</span>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#productos" class="nav-link">Productos</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+        
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <!-- Contenido de las pestañas -->
+    <main>
+        <!-- Pestaña Inicio -->
+        <section id="inicio" class="tab-content active">
+            <div class="hero">
+                <div class="hero-content animate-fade">
+                    <h1>Químicos de Calidad para la Elaboración de Quesos</h1>
+                    <p>Evergreen 2022 proporciona los mejores insumos químicos para la industria quesera, garantizando calidad, consistencia y resultados excepcionales en cada producción.</p>
+                    <div>
+                        <a href="#productos" class="btn">Ver Productos</a>
+                        <a href="#contacto" class="btn btn-outline">Contactar</a>
+                    </div>
+                </div>
+                <img src="assets/h1.png" alt="Quesos artesanales" class="hero-image animate-fade animate-delay-1">
+            </div>
+            
+            <!-- Features -->
+            <section class="features">
+                <h2 class="section-title animate-fade">Nuestras Ventajas</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-fade animate-delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Calidad Garantizada</h3>
+                        <p>Productos químicos de la más alta pureza y calidad, certificados para uso alimentario.</p>
+                    </div>
+                    
+                    <div class="feature-card animate-fade animate-delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Envío Rápido</h3>
+                        <p>Distribución eficiente a nivel nacional para que recibas tus productos cuando los necesites.</p>
+                    </div>
+                    
+                    <div class="feature-card animate-fade animate-delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Soporte Técnico</h3>
+                        <p>Asesoramiento especializado para ayudarte a elegir los mejores productos para tu producción.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <!-- Pestaña Productos -->
+        <section id="productos" class="tab-content">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="product-badge">Más vendido</span>
+                    <img src="assets/natamicina2.jpg" alt="Cuajo" class="product-image">
+                    <div class="product-info">
+                        <h3>Natimicina</h3>
+                        <p>La Natamicina es un antifúngico natural que se obtiene a través de la
+fermentación de una cepa no modificada genéticamente de
+Streptomyces natalensis.</p>
+                        <span class="product-price">$25.99</span>
+                        <div class="product-actions">
+                            <button class="btn btn-sm">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="assets/bf300.jpg" alt="Cultivos lácticos" class="product-image">
+                    <div class="product-info">
+                        <h3>Valiren BF300</h3>
+                        <p>El cultivo Valiren BF300 es un cultivo liofilizado productor de ácido
+láctico con una rápida actividad acidificante, destaca por la producción
+de yogures con cremosidad alta, acidez media y baja post acificación.</p>
+                        <span class="product-price">$18.50</span>
+                        <div class="product-actions">
+                            <button class="btn btn-sm">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="assets/Y100A.png" alt="Cloruro de calcio" class="product-image">
+                    <div class="product-info">
+                        <h3>Valiren Y100</h3>
+                        <p>El cultivo Valiren Y100 es un productor de ácido láctico con una rápida
+actividad acidificante, destacando por su agradable sabor y la
+producción de exopolisacáridos (EPS).
+</p>
+                        <span class="product-price">$12.75</span>
+                        <div class="product-actions">
+                            <button class="btn btn-sm">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="product-card">
+                    <span class="product-badge">Nuevo</span>
+                    <img src="assets/YAV343.jpg" alt="Sal para queso" class="product-image">
+                    <div class="product-info">
+                        <h3>Valiren YAV 343</h3>
+                        <p>Valiren YAV 343 es un cultivo liofilizado de inoculación directa que
+promueve una rápida acidificación, confiriendo una notable
+viscosidad, así como un aroma y sabor más intensos en el producto
+final.</p>
+                        <span class="product-price">$8.99</span>
+                        <div class="product-actions">
+                            <button class="btn btn-sm">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categorías de productos -->
+            <div class="product-categories" style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Explora nuestras categorías</h3>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-sm btn-outline" data-category="all">Todos</button>
+                    <button class="btn btn-sm btn-outline" data-category="cuajo">Cuajos</button>
+                    <button class="btn btn-sm btn-outline" data-category="cultivos">Cultivos</button>
+                    <button class="btn btn-sm btn-outline" data-category="aditivos">Aditivos</button>
+                    <button class="btn btn-sm btn-outline" data-category="otros">Otros</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pestaña Nosotros -->
+        <section id="nosotros" class="tab-content">
+            <div class="about">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Equipo Evergreen 2022">
+                </div>
+                <div class="about-content">
+                    <h2>Sobre Evergreen 2022</h2>
+                    <p>Fundada en el año 2022, Evergreen se ha consolidado como líder en la provisión de insumos químicos para la industria quesera. Nuestro compromiso con la calidad y la innovación nos ha permitido trabajar con los principales productores de queso a nivel nacional.</p>
+                    <p>Contamos con un equipo de expertos en tecnología de alimentos que constantemente investigan y desarrollan nuevos productos para satisfacer las necesidades cambiantes del mercado.</p>
+                    <p>Nuestra misión es proporcionar a nuestros clientes los mejores insumos para que puedan producir quesos de excelente calidad, sabor y textura, manteniendo los más altos estándares de seguridad alimentaria.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Nuestros Valores</h3>
+                        <ul style="list-style-type: none;">
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Calidad garantizada en todos nuestros productos</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Innovación constante en formulaciones</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Asesoramiento técnico especializado</li>
+                            <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Compromiso con la industria quesera</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipo -->
+            <div style="padding: 3rem 5%; text-align: center;">
+                <h2 style="color: var(--primary-dark); margin-bottom: 2rem;">Nuestro Equipo</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Director Técnico">
+                        <h3>Dr. Carlos Méndez</h3>
+                        <p style="color: var(--gray-dark); font-weight: 500;">Director Técnico</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">PhD en Tecnología de Alimentos con 15 años de experiencia en la industria láctea.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Jefa de Producción">
+                        <h3>Ing. Laura Fernández</h3>
+                        <p style="color: var(--gray-dark); font-weight: 500;">Jefa de Producción</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Especialista en control de calidad y procesos de fabricación de insumos lácteos.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Director Comercial">
+                        <h3>Lic. Roberto Jiménez</h3>
+                        <p style="color: var(--gray-dark); font-weight: 500;">Director Comercial</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">20 años de experiencia en distribución de insumos para la industria alimentaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pestaña Testimonios -->
+        <section id="testimonios" class="tab-content">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Los productos de Evergreen 2022 han transformado nuestra producción de queso. La calidad y consistencia de sus insumos nos permiten obtener resultados excepcionales en cada lote."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Méndez" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Carlos Méndez</h4>
+                            <p>Quesería Artesanal Méndez</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "El soporte técnico de Evergreen es invaluable. Nos ayudaron a seleccionar los cultivos lácticos perfectos para nuestro queso azul, y los resultados han sido extraordinarios."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laura González" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Laura González</h4>
+                            <p>Lácteos del Valle</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Como pequeña productora, valoro mucho la relación calidad-precio de los productos de Evergreen. Me permiten competir en el mercado con quesos de primera calidad."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Rodríguez" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Ana Rodríguez</h4>
+                            <p>Quesos Artesanales Ana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Casos de éxito -->
+            <div style="margin-top: 4rem; text-align: center;">
+                <h2 style="color: var(--primary-dark); margin-bottom: 2rem;">Casos de Éxito</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="success-case">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Quesería Artesanal Méndez</h3>
+                        <p style="margin-bottom: 1rem;">"Aumentamos nuestra producción en un 40% sin sacrificar calidad gracias a los insumos de Evergreen."</p>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-weight: 600; color: var(--primary);">+40% producción</span>
+                            <span style="font-weight: 600; color: var(--primary);">-15% desperdicio</span>
+                        </div>
+                    </div>
+                    
+                    <div class="success-case">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Lácteos del Valle</h3>
+                        <p style="margin-bottom: 1rem;">"Implementamos la línea de cultivos especializados y redujimos nuestros tiempos de maduración a la mitad."</p>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-weight: 600; color: var(--primary);">50% menos tiempo</span>
+                            <span style="font-weight: 600; color: var(--primary);">+30% sabor</span>
+                        </div>
+                    </div>
+                    
+                    <div class="success-case">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Quesos Premium S.A.</h3>
+                        <p style="margin-bottom: 1rem;">"Los productos de Evergreen nos permitieron obtener certificaciones internacionales de calidad."</p>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-weight: 600; color: var(--primary);">3 certificaciones</span>
+                            <span style="font-weight: 600; color: var(--primary);">+25 países</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pestaña Contacto -->
+        <section id="contacto" class="tab-content">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p>
+Zona industrial norte, sector Bomba Caribe, Maracaibo, Venezuela</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <p>+58 424 659 4559</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p>info@evergreen2022.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <p>Lunes a Viernes: 8:00 - 18:00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    
+                    <!-- Mapa -->
+                    <div style="margin-top: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-dark);">Ubicación</h3>
+                        <div style="height: 250px; background: var(--gray); border-radius: 10px; overflow: hidden;">
+                            <!-- Aquí iría el iframe de Google Maps -->
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2330.8999468338116!2d-71.63250769190853!3d10.727478374513936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sve!4v1752640519916!5m2!1ses!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Seleccione un asunto</option>
+                                <option value="consulta">Consulta general</option>
+                                <option value="pedido">Realizar pedido</option>
+                                <option value="soporte">Soporte técnico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                    
+                    <!-- Preguntas frecuentes -->
+                    <div style="margin-top: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-dark);">Preguntas frecuentes</h3>
+                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
+                            <div class="faq-item">
+                                <h4>¿Cómo realizo un pedido?<i class="fas fa-chevron-down"></i></h4>
+                                <p>Puedes realizar tu pedido a través de nuestro formulario de contacto, por teléfono o enviando un correo electrónico a pedidos@evergreen2022.com.</p>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <h4>¿Cuáles son los tiempos de entrega?<i class="fas fa-chevron-down"></i></h4>
+                                <p>Los tiempos de entrega varían según la ubicación. En zona metropolitana es de 24-48 horas hábiles, y para el resto del país de 3-5 días hábiles.</p>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <h4>¿Ofrecen muestras de productos?<i class="fas fa-chevron-down"></i></h4>
+                                <p>Sí, ofrecemos muestras de la mayoría de nuestros productos para que puedas evaluar su calidad. Contáctanos para más información.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <span class="footer-logo">Evergreen 2022</span>
+                <p>Proveedores líderes de insumos químicos para la industria quesera, comprometidos con la calidad y la innovación.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Sobre nosotros</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="#">Cuajo</a></li>
+                    <li><a href="#">Cultivos lácticos</a></li>
+                    <li><a href="#">Cloruro de calcio</a></li>
+                    <li><a href="#">Todos los productos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Suscríbete para recibir noticias y promociones especiales.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Evergreen 2022. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        
+        <div class="cart-items">
+            <!-- Los items del carrito se agregarán dinámicamente aquí -->
+        </div>
+        
+        <div class="cart-total">
+            Total: <span>$0.00</span>
+        </div>
+        
+        <button class="checkout-btn">Proceder al Pago</button>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    
+    <script>
+        // Funcionalidad de las pestañas
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Mostrar la pestaña correspondiente al hash de la URL al cargar
+            showTab(window.location.hash || '#inicio');
+            
+            // Manejar clic en los enlaces del menú
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetTab = this.getAttribute('href');
+                    
+                    // Cambiar la URL sin recargar la página
+                    history.pushState(null, null, targetTab);
+                    
+                    // Mostrar la pestaña correspondiente
+                    showTab(targetTab);
+                });
+            });
+            
+            // Manejar el botón de retroceso/avance del navegador
+            window.addEventListener('popstate', function() {
+                showTab(window.location.hash || '#inicio');
+            });
+            
+            function showTab(tabId) {
+                // Ocultar todos los contenidos de pestañas
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Mostrar la pestaña seleccionada
+                const activeTab = document.querySelector(tabId);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+                
+                // Actualizar el enlace activo en el menú
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === tabId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Desplazarse suavemente a la parte superior
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Funcionalidad del menú móvil
+            const mobileMenuBtn = document.querySelector('.mobile-menu');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+            
+            // Funcionalidad del carrito
+            const cartIcon = document.querySelector('.cart-icon');
+            const cartSidebar = document.querySelector('.cart-sidebar');
+            const closeCart = document.querySelector('.close-cart');
+            const overlay = document.querySelector('.overlay');
+            
+            cartIcon.addEventListener('click', () => {
+                cartSidebar.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            closeCart.addEventListener('click', () => {
+                cartSidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            overlay.addEventListener('click', () => {
+                cartSidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                nav.classList.remove('active');
+            });
+            
+            // Funcionalidad del carrito
+            let cart = [];
+            const cartCount = document.querySelector('.cart-count');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartTotal = document.querySelector('.cart-total span');
+            
+            document.querySelectorAll('.product-actions .btn').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+            
+            function addToCart(e) {
+                const productCard = e.target.closest('.product-card');
+                const productId = productCard.querySelector('h3').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.product-price').textContent.replace('$', ''));
+                const productImage = productCard.querySelector('.product-image').src;
+                
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        id: productId,
+                        price: productPrice,
+                        image: productImage,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                
+                // Animation feedback
+                e.target.textContent = '¡Agregado!';
+                e.target.style.backgroundColor = '#388E3C';
+                setTimeout(() => {
+                    e.target.textContent = 'Agregar al carrito';
+                    e.target.style.backgroundColor = '#4CAF50';
+                }, 1000);
+            }
+            
+            function updateCart() {
+                // Update count
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                
+                // Update cart items
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Tu carrito está vacío</p>';
+                    cartTotal.textContent = '$0.00';
+                    return;
+                }
+                
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.id}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.id}</h4>
+                            <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+                            <div class="cart-item-actions">
+                                <button class="quantity-btn minus">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus">+</button>
+                                <span class="remove-item"><i class="fas fa-trash"></i></span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItemElement);
+                    
+                    // Add event listeners to new buttons
+                    const minusBtn = cartItemElement.querySelector('.minus');
+                    const plusBtn = cartItemElement.querySelector('.plus');
+                    const removeBtn = cartItemElement.querySelector('.remove-item');
+                    
+                    minusBtn.addEventListener('click', () => {
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                            updateCart();
+                        }
+                    });
+                    
+                    plusBtn.addEventListener('click', () => {
+                        item.quantity++;
+                        updateCart();
+                    });
+                    
+                    removeBtn.addEventListener('click', () => {
+                        cart = cart.filter(cartItem => cartItem.id !== item.id);
+                        updateCart();
+                    });
+                });
+                
+                // Update total
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+            }
+            
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('h4');
+                const answer = item.querySelector('p');
+                const icon = item.querySelector('i');
+                
+                question.addEventListener('click', function() {
+                    if (answer.style.display === 'none' || !answer.style.display) {
+                        answer.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        answer.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Aquí iría la lógica para enviar el formulario
+                alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+                this.reset();
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                alert(`Gracias por suscribirte con el email: ${emailInput.value}`);
+                emailInput.value = '';
+            });
+            
+            // Filtros de productos
+            const filterButtons = document.querySelectorAll('[data-category]');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    // Aquí iría la lógica para filtrar productos
+                    alert(`Filtrando por categoría: ${category}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
